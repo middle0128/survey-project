@@ -61,6 +61,14 @@
                 width: 100%;
             }
         }
+
+        /* 如果框包含超链接，调整框的位置 */
+        .container {
+            padding: 20px;
+            border: 2px solid #87ceeb;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -72,13 +80,16 @@
         表單沒出現請點這
     </a>
 
-    <!-- 嵌入的 Google 表单 -->
-    <iframe 
-        id="googleForm"
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfDkRr60pArl7X0r7yzXHPPYrwmGbIeWeXc5Tp0HFsBkL5dfQ/viewform?embedded=true" 
-        frameborder="0" 
-        scrolling="no">
-    </iframe>
+    <!-- 放置表单的容器 -->
+    <div class="container">
+        <!-- 嵌入的 Google 表单 -->
+        <iframe 
+            id="googleForm"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfDkRr60pArl7X0r7yzXHPPYrwmGbIeWeXc5Tp0HFsBkL5dfQ/viewform?embedded=true" 
+            frameborder="0" 
+            scrolling="no">
+        </iframe>
+    </div>
 
     <script>
         // 滾動到 iframe 內部時觸發滾動到頁面頂部
