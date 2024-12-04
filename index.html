@@ -78,21 +78,11 @@
         <iframe 
             id="googleForm"
             src="https://docs.google.com/forms/d/e/1FAIpQLSfDkRr60pArl7X0r7yzXHPPYrwmGbIeWeXc5Tp0HFsBkL5dfQ/viewform?embedded=true" 
-            height: 3205px;
+            height: 3169px;
             frameborder="0" 
             scrolling="no">
         </iframe>
     </div>
 
-    <script>
-        // 滾動到 iframe 內部時觸發滾動到頁面頂部
-        const iframe = document.getElementById('googleForm');
-        
-        window.addEventListener('scroll', function() {
-            if (iframe.getBoundingClientRect().top < window.innerHeight && iframe.getBoundingClientRect().bottom > 0) {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        });
-    </script>
 </body>
 </html>
