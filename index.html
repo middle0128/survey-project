@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Z世代對SDGs的飲食態度</title>
     <style>
-        /* 全局樣式 */
+        /* 全局样式 */
         body {
             background-color: #f0f8ff; /* 淺藍背景 */
             font-family: Arial, sans-serif;
@@ -13,13 +13,31 @@
             padding: 10px;
         }
 
-        /* 標題樣式 */
+        /* 标题样式 */
         h1 {
             text-align: center;
             color: #4682b4; /* 深藍標題 */
             margin-top: 20px;
             margin-bottom: 20px;
             font-size: 2rem;
+        }
+
+        /* 超链接样式 */
+        a {
+            font-size: 18px;  /* 設定文字大小 */
+            text-decoration: none;  /* 去除下劃線 */
+            color: #4682b4;  /* 深藍顏色 */
+            font-weight: bold;  /* 讓文字變得加粗 */
+            margin-bottom: 10px;  /* 在下面添加10px的間距 */
+            display: inline-block;  /* 行內塊級元素，讓它支持寬高設置 */
+            text-align: center;
+            display: block;
+            margin-top: 20px; /* 超链接与标题之间的间距 */
+        }
+
+        /* 當滑鼠懸停時 */
+        a:hover {
+            color: #87ceeb;  /* 滑鼠懸停時改變顏色 */
         }
 
         /* iframe 樣式 */
@@ -46,7 +64,15 @@
     </style>
 </head>
 <body>
+    <!-- 页面标题 -->
     <h1>Z世代對SDGs的飲食態度</h1>
+
+    <!-- 超链接：指向其他页面或功能 -->
+    <a href="https://www.example.com" target="_blank">
+        點擊這裡了解更多關於Z世代對SDGs的飲食態度
+    </a>
+
+    <!-- 嵌入的 Google 表单 -->
     <iframe 
         id="googleForm"
         src="https://docs.google.com/forms/d/e/1FAIpQLSfDkRr60pArl7X0r7yzXHPPYrwmGbIeWeXc5Tp0HFsBkL5dfQ/viewform?embedded=true" 
