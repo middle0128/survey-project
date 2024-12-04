@@ -24,40 +24,40 @@
 
         /* 超链接样式 */
         a {
-            font-size: 18px;  /* 設定文字大小 */
-            text-decoration: none;  /* 去除下劃線 */
-            color: #4682b4;  /* 深藍顏色 */
-            font-weight: bold;  /* 讓文字變得加粗 */
-            margin-bottom: 10px;  /* 在下面添加10px的間距 */
-            display: inline-block;  /* 行內塊級元素，讓它支持寬高設置 */
+            font-size: 24px;  /* 设置文字大小为24px */
+            text-decoration: none;  /* 去除下划线 */
+            color: #4682b4;  /* 深蓝颜色 */
+            font-weight: bold;  /* 让文字变得加粗 */
+            margin-bottom: 10px;  /* 在下面添加10px的间距 */
+            display: inline-block;  /* 行内块级元素，支持宽高设置 */
             text-align: center;
             display: block;
             margin-top: 20px; /* 超链接与标题之间的间距 */
         }
 
-        /* 當滑鼠懸停時 */
+        /* 滑鼠悬停时 */
         a:hover {
-            color: #87ceeb;  /* 滑鼠懸停時改變顏色 */
+            color: #87ceeb;  /* 滑鼠懸停时改变颜色 */
         }
 
-        /* iframe 樣式 */
+        /* iframe 样式 */
         iframe {
             border: 8px solid #87ceeb; /* 淺藍邊框 */
             border-radius: 10px; /* 邊角圓潤 */
             display: block;
             margin: 0 auto; /* 垂直居中 */
             width: 95%;
-            max-width: 1000px; /* 限制最大寬度，讓大螢幕也保持美觀 */
+            max-width: 1000px; /* 限制最大宽度 */
             height: 2205px;
         }
 
-        /* 響應式處理（小螢幕優化） */
+        /* 响应式处理（小屏幕优化） */
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.5rem;
             }
             iframe {
-                border-width: 4px; /* 邊框變細 */
+                border-width: 4px; /* 边框变细 */
                 width: 100%;
             }
         }
@@ -67,9 +67,9 @@
     <!-- 页面标题 -->
     <h1>Z世代對SDGs的飲食態度</h1>
 
-    <!-- 超链接：指向其他页面或功能 -->
+    <!-- 超链接：点击跳转 -->
     <a href="https://forms.gle/hQNeAdfx3aYbY7Qr6" target="_blank">
-        如果表單沒出現請點這
+        表單沒出現請點這
     </a>
 
     <!-- 嵌入的 Google 表单 -->
@@ -81,13 +81,11 @@
     </iframe>
 
     <script>
-        // 當用戶滾動到 iframe 內部時觸發滾動到頁面頂部
+        // 滾動到 iframe 內部時觸發滾動到頁面頂部
         const iframe = document.getElementById('googleForm');
         
-        // 監聽 iframe 滾動事件
         window.addEventListener('scroll', function() {
             if (iframe.getBoundingClientRect().top < window.innerHeight && iframe.getBoundingClientRect().bottom > 0) {
-                // 當 iframe 顯示在螢幕範圍內，觸發滾動到頁面頂部
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
