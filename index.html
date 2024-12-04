@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Z世代對SDGs的飲食態度</title>
     <style>
-        /* 全局样式 */
+        /* 全局樣式 */
         body {
             background-color: #f0f8ff; /* 淺藍背景 */
             font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
             padding: 10px;
         }
 
-        /* 标题样式 */
+        /* 標題樣式 */
         h1 {
             text-align: center;
             color: #4682b4; /* 深藍標題 */
@@ -22,57 +22,76 @@
             font-size: 2rem;
         }
 
-        /* 超链接样式 */
+        /* 超連結樣式 */
         a {
-            font-size: 24px;  /* 設置文字大小 */
-            text-decoration: none;  /* 去除下划线 */
-            color: #4682b4;  /* 深蓝颜色 */
-            font-weight: bold;  /* 讓文字變得加粗 */
-            margin-bottom: 10px;  /* 在下面添加10px的间距 */
-            display: inline-block;  /* 行內塊級元素，支持宽高設置 */
+            font-size: 18px; 
+            text-decoration: none;
+            color: #4682b4;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: inline-block;
             text-align: center;
-            display: block;
-            margin-top: 20px; /* 超链接与标题之间的间距 */
+            margin-top: 10px;
         }
 
-        /* 滑鼠悬停时 */
         a:hover {
-            color: #87ceeb;  /* 滑鼠懸停时改变颜色 */
+            color: #87ceeb; /* 滑鼠懸停改變顏色 */
         }
 
-        /* iframe 样式 */
-        iframe {
-            border: 8px solid #87ceeb; /* 淺藍邊框 */
-            border-radius: 10px; /* 邊角圓潤 */
+        /* 按鈕樣式 */
+        button {
             display: block;
-            margin: 0 auto; /* 垂直居中 */
-            width: 95%;
-            max-width: 1000px; /* 限制最大宽度 */
-            height: 2205px; /* 默认高度，供未加载时使用 */
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        /* 响应式处理（小屏幕优化） */
+        button:hover {
+            background-color: #87ceeb; /* 滑鼠懸停時變淡 */
+        }
+
+        /* iframe 樣式 */
+        iframe {
+            border: 8px solid #87ceeb;
+            border-radius: 10px;
+            display: block;
+            margin: 20px auto;
+            width: 95%;
+            max-width: 1000px;
+            height: 1500px;
+        }
+
+        /* 響應式處理 */
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.5rem;
             }
             iframe {
-                border-width: 4px; /* 邊框變細 */
-                width: 90%;
+                width: 90%; /* 調整寬度 */
             }
         }
     </style>
 </head>
 <body>
-    <!-- 页面标题 -->
+    <!-- 頁面標題 -->
     <h1>Z世代對SDGs的飲食態度</h1>
 
-    <!-- 超链接：点击跳转 -->
-    <a href="https://forms.gle/hQNeAdfx3aYbY7Qr6" target="_blank">
-        表單未出現？請點擊這裡
+    <!-- 超連結到 Google Form -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDkRr60pArl7X0r7yzXHPPYrwmGbIeWeXc5Tp0HFsBkL5dfQ/viewform" target="_blank">
+        如果表單無法顯示，點擊這裡
     </a>
 
-    <!-- 嵌入的 Google 表单 -->
+    <!-- 返回頁首按鈕 -->
+    <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+        返回頁首
+    </button>
+
+    <!-- 嵌入的 Google 表單 -->
     <iframe 
         id="googleForm"
         src="https://docs.google.com/forms/d/e/1FAIpQLSfDkRr60pArl7X0r7yzXHPPYrwmGbIeWeXc5Tp0HFsBkL5dfQ/viewform?embedded=true" 
@@ -81,27 +100,12 @@
     </iframe>
 
     <script>
-        // 自动调整 iframe 高度
+        // 使用 ResizeObserver 自動監聽 iframe 高度變化
         const iframe = document.getElementById('googleForm');
-        iframe.addEventListener('load', () => {
-            adjustIframeHeight();
-        });
-
-        function adjustIframeHeight() {
-            try {
-                const iframeDocument = iframe.contentWindow.document;
-                const iframeBody = iframeDocument.body;
-                const newHeight = iframeBody.scrollHeight; // 获取内容的总高度
-                iframe.style.height = newHeight + 'px';
-            } catch (e) {
-                console.error('无法调整 iframe 高度，可能因跨域限制导致。');
-            }
-        }
-
-        // 页面加载时滚动到顶部
-        window.onload = function() {
+        const observer = new ResizeObserver(() => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
+        });
+        observer.observe(iframe);
     </script>
 </body>
 </html>
