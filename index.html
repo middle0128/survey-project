@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Z世代對SDGs的飲食態度</title>
-    <bv>
     <style>
         /* 全局样式 */
         body {
@@ -25,12 +24,12 @@
 
         /* 超链接样式 */
         a {
-            font-size: 24px;  /* 设置文字大小为24px */
+            font-size: 24px;  /* 設置文字大小 */
             text-decoration: none;  /* 去除下划线 */
-            color: #AE0000;  /* 颜色 */
-            font-weight: bold;  /* 让文字变得加粗 */
+            color: #4682b4;  /* 深蓝颜色 */
+            font-weight: bold;  /* 讓文字變得加粗 */
             margin-bottom: 10px;  /* 在下面添加10px的间距 */
-            display: inline-block;  /* 行内块级元素，支持宽高设置 */
+            display: inline-block;  /* 行內塊級元素，支持宽高設置 */
             text-align: center;
             display: block;
             margin-top: 20px; /* 超链接与标题之间的间距 */
@@ -49,17 +48,18 @@
             margin: 0 auto; /* 垂直居中 */
             width: 95%;
             max-width: 1000px; /* 限制最大宽度 */
-            
+            height: 2205px; /* 默认高度，供未加载时使用 */
         }
 
-
-
-        /* 如果框包含超链接，调整框的位置 */
-        .container {
-            padding: 20px;
-            border: 2px solid #87ceeb;
-            border-radius: 10px;
-            margin-top: 20px;
+        /* 响应式处理（小屏幕优化） */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            iframe {
+                border-width: 4px; /* 邊框變細 */
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -69,20 +69,39 @@
 
     <!-- 超链接：点击跳转 -->
     <a href="https://forms.gle/hQNeAdfx3aYbY7Qr6" target="_blank">
-        表單沒出現請點這
+        表單未出現？請點擊這裡
     </a>
 
-    <!-- 放置表单的容器 -->
-    <div class="container">
-        <!-- 嵌入的 Google 表单 -->
-        <iframe 
-            id="googleForm"
-            src="https://docs.google.com/forms/d/e/1FAIpQLSfDkRr60pArl7X0r7yzXHPPYrwmGbIeWeXc5Tp0HFsBkL5dfQ/viewform?embedded=true" 
-            height: 3169px;
-            frameborder="0" 
-            scrolling="no">
-        </iframe>
-    </div>
+    <!-- 嵌入的 Google 表单 -->
+    <iframe 
+        id="googleForm"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfDkRr60pArl7X0r7yzXHPPYrwmGbIeWeXc5Tp0HFsBkL5dfQ/viewform?embedded=true" 
+        frameborder="0" 
+        scrolling="no">
+    </iframe>
 
+    <script>
+        // 自动调整 iframe 高度
+        const iframe = document.getElementById('googleForm');
+        iframe.addEventListener('load', () => {
+            adjustIframeHeight();
+        });
+
+        function adjustIframeHeight() {
+            try {
+                const iframeDocument = iframe.contentWindow.document;
+                const iframeBody = iframeDocument.body;
+                const newHeight = iframeBody.scrollHeight; // 获取内容的总高度
+                iframe.style.height = newHeight + 'px';
+            } catch (e) {
+                console.error('无法调整 iframe 高度，可能因跨域限制导致。');
+            }
+        }
+
+        // 页面加载时滚动到顶部
+        window.onload = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
 </body>
 </html>
