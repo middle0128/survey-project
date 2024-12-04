@@ -30,7 +30,7 @@
             margin: 0 auto; /* 垂直居中 */
             width: 95%;
             max-width: 1000px; /* 限制最大寬度，讓大螢幕也保持美觀 */
-            height: 1205px;
+            height: 2205px;
         }
 
         /* 響應式處理（小螢幕優化） */
@@ -55,20 +55,15 @@
     </iframe>
 
     <script>
-        // 獲取 iframe 元素
-        const googleForm = document.getElementById('googleForm');
-
-        // 監聽表單內部的點擊事件
-        googleForm.addEventListener('load', () => {
-            const iframeDocument = googleForm.contentWindow.document;
-
-            iframeDocument.addEventListener('click', (event) => {
-                // 檢查點擊是否觸發了下一步
-                if (event.target.tagName === 'SPAN' && event.target.innerText.includes('下一步')) {
-                    // 滾動到表單頂部
-                    googleForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+        // 當用戶滾動到 iframe 內部時觸發滾動到頁面頂部
+        const iframe = document.getElementById('googleForm');
+        
+        // 監聽 iframe 滾動事件
+        window.addEventListener('scroll', function() {
+            if (iframe.getBoundingClientRect().top < window.innerHeight && iframe.getBoundingClientRect().bottom > 0) {
+                // 當 iframe 顯示在螢幕範圍內，觸發滾動到頁面頂部
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         });
     </script>
 </body>
