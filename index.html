@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Z世代對SDGs的飲食態度</title>
     <style>
+        /* 全局樣式 */
         body {
             background-color: #f0f8ff; /* 淺藍背景 */
             font-family: Arial, sans-serif;
@@ -12,16 +13,35 @@
             padding: 10px;
         }
 
+        /* 標題樣式 */
         h1 {
             text-align: center;
             color: #4682b4; /* 深藍標題 */
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 2rem;
         }
 
+        /* iframe 樣式 */
         iframe {
             border: 8px solid #87ceeb; /* 淺藍邊框 */
             border-radius: 10px; /* 邊角圓潤 */
             display: block;
-            margin: 0 auto;
+            margin: 0 auto; /* 垂直居中 */
+            width: 95%;
+            max-width: 1000px; /* 限制最大寬度，讓大螢幕也保持美觀 */
+            height: 1205px;
+        }
+
+        /* 響應式處理（小螢幕優化） */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            iframe {
+                border-width: 4px; /* 邊框變細 */
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -29,8 +49,6 @@
     <h1>Z世代對SDGs的飲食態度</h1>
     <iframe 
         src="https://docs.google.com/forms/d/e/1FAIpQLSfDkRr60pArl7X0r7yzXHPPYrwmGbIeWeXc5Tp0HFsBkL5dfQ/viewform?embedded=true" 
-        width="95%" 
-        height="2205" 
         frameborder="0" 
         scrolling="no">
     </iframe>
