@@ -48,9 +48,28 @@
 <body>
     <h1>Z世代對SDGs的飲食態度</h1>
     <iframe 
+        id="googleForm"
         src="https://docs.google.com/forms/d/e/1FAIpQLSfDkRr60pArl7X0r7yzXHPPYrwmGbIeWeXc5Tp0HFsBkL5dfQ/viewform?embedded=true" 
         frameborder="0" 
         scrolling="no">
     </iframe>
+
+    <script>
+        // 獲取 iframe 元素
+        const googleForm = document.getElementById('googleForm');
+
+        // 監聽表單內部的點擊事件
+        googleForm.addEventListener('load', () => {
+            const iframeDocument = googleForm.contentWindow.document;
+
+            iframeDocument.addEventListener('click', (event) => {
+                // 檢查點擊是否觸發了下一步
+                if (event.target.tagName === 'SPAN' && event.target.innerText.includes('下一步')) {
+                    // 滾動到表單頂部
+                    googleForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
